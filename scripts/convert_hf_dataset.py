@@ -70,7 +70,9 @@ def main() -> None:
         for index, row in enumerate(ds):
             if LIMIT is not None and index >= LIMIT:
                 break
-            conversations = row.get("conversations")
+            # У ZeroAgency колонка называется "conversation" (ед. число),
+            # у похожих датасетов — "conversations"; поддерживаем оба.
+            conversations = row.get("conversation") or row.get("conversations")
             if not isinstance(conversations, list):
                 skipped += 1
                 continue
@@ -87,6 +89,11 @@ def main() -> None:
             kept += 1
 
     print(f"Wrote {kept} dialogues to {OUT_PATH} (skipped {skipped})")
+    if kept == 0:
+        raise SystemExit(
+            "Error: 0 dialogues kept. Check that the dataset rows have a "
+            "'conversation'/'conversations' list field (see script)."
+        )
 
 
 if __name__ == "__main__":
