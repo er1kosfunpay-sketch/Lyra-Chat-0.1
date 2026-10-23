@@ -1,0 +1,339 @@
+{
+  "checkpoint": "C:\\Users\\erikh\\OneDrive\\Документы\\Lyra Chat 0.1\\artifacts\\runs\\smoke-sft\\checkpoints\\best.pt",
+  "step": 4,
+  "tokens_seen": 652,
+  "parameters": 104274432,
+  "model_config": {
+    "vocab_size": 24000,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "block_size": 1024,
+    "dropout": 0.1,
+    "bias": true,
+    "tie_embeddings": true,
+    "init_std": 0.02
+  },
+  "tokenizer": {
+    "type": "byte-level BPE",
+    "vocab_size": 24000,
+    "special_tokens": {
+      "<|pad|>": 0,
+      "<|unk|>": 1,
+      "<|bos|>": 2,
+      "<|eos|>": 3,
+      "<|system|>": 4,
+      "<|user|>": 5,
+      "<|assistant|>": 6,
+      "<|turn_end|>": 7
+    },
+    "fingerprint": "96e4064990a0e0ba2011babce1ac091ee25bfdbebc405d84a43449505e8cb606"
+  },
+  "stage": "sft",
+  "device": "cpu",
+  "loss": {
+    "val": {
+      "loss": 8.981280415245656,
+      "perplexity": 7952.808496360295,
+      "batches": 5,
+      "targets": 356
+    },
+    "test": {
+      "loss": 8.8706215629004,
+      "perplexity": 7119.7049425938285,
+      "batches": 5,
+      "targets": 266
+    }
+  },
+  "dataset": {
+    "val": {
+      "examples": 449,
+      "tokens": 26425,
+      "response_tokens": 7373,
+      "max_len": 1024
+    },
+    "test": {
+      "examples": 389,
+      "tokens": 22391,
+      "response_tokens": 6029,
+      "max_len": 1024
+    }
+  },
+  "train_loss": 8.822046279907227,
+  "training_val_loss": 9.028329902971295,
+  "training_history": {
+    "train_loss": {
+      "count": 4,
+      "first": 9.183424949645996,
+      "last": 8.822046279907227,
+      "min": 8.822046279907227,
+      "max": 9.183424949645996
+    },
+    "val_loss": {
+      "count": 2,
+      "first": 9.479754152432294,
+      "last": 9.028329902971295,
+      "min": 9.028329902971295,
+      "max": 9.479754152432294
+    },
+    "steps": 4,
+    "tokens_seen": 652
+  },
+  "generation_config": {
+    "max_new_tokens": 40,
+    "min_new_tokens": 1,
+    "temperature": 0.8,
+    "top_k": 40,
+    "top_p": 0.95,
+    "repetition_penalty": 1.12,
+    "no_repeat_ngram_size": 3,
+    "do_sample": true,
+    "context_tokens": 900
+  },
+  "metrics": {
+    "responses": 16,
+    "nonempty": 16,
+    "empty_rate": 0.0,
+    "stopped_rate": 1.0,
+    "max_tokens_rate": 0.0,
+    "mean_chars": 5.25,
+    "min_chars": 1,
+    "max_chars": 13,
+    "distinct_1": 0.5,
+    "distinct_2": 1.0,
+    "mean_repetition_4gram": 0.0,
+    "adjacent_duplicate_rate": 0.0,
+    "role_bleed_rate": 0.0
+  },
+  "scenarios": [
+    {
+      "name": "greeting",
+      "tags": [
+        "greeting"
+      ],
+      "turns": [
+        {
+          "user": "Привет! Как дела?",
+          "text": "на Осталось я",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 9,
+          "generated_tokens": 3
+        }
+      ],
+      "tokens_per_sec": 6.3
+    },
+    {
+      "name": "short_question",
+      "tags": [
+        "short"
+      ],
+      "turns": [
+        {
+          "user": "Что делаешь?",
+          "text": "з",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 7,
+          "generated_tokens": 1
+        }
+      ],
+      "tokens_per_sec": 2.1
+    },
+    {
+      "name": "slang",
+      "tags": [
+        "slang",
+        "short"
+      ],
+      "turns": [
+        {
+          "user": "Здарова, чё как?",
+          "text": "шоп",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 10,
+          "generated_tokens": 1
+        }
+      ],
+      "tokens_per_sec": 2.1
+    },
+    {
+      "name": "clarification",
+      "tags": [
+        "clarification",
+        "context"
+      ],
+      "turns": [
+        {
+          "user": "Я вчера начал смотреть новый сериал.",
+          "text": ",",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 11,
+          "generated_tokens": 1
+        },
+        {
+          "user": "Как думаешь, стоит его досматривать?",
+          "text": "к",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 25,
+          "generated_tokens": 1
+        }
+      ],
+      "tokens_per_sec": 4.2
+    },
+    {
+      "name": "topic_change",
+      "tags": [
+        "context",
+        "topic_change"
+      ],
+      "turns": [
+        {
+          "user": "Привет, как прошли выходные?",
+          "text": "на",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 10,
+          "generated_tokens": 1
+        },
+        {
+          "user": "Кстати, ты любишь кофе?",
+          "text": ". малыш",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 21,
+          "generated_tokens": 2
+        }
+      ],
+      "tokens_per_sec": 6.3
+    },
+    {
+      "name": "shorter",
+      "tags": [
+        "instruction",
+        "length"
+      ],
+      "turns": [
+        {
+          "user": "Расскажи, чем ты обычно занимаешься вечером.",
+          "text": ". на",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 12,
+          "generated_tokens": 2
+        },
+        {
+          "user": "Покороче, пожалуйста.",
+          "text": "на призываю я",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 24,
+          "generated_tokens": 3
+        }
+      ],
+      "tokens_per_sec": 10.5
+    },
+    {
+      "name": "emotional",
+      "tags": [
+        "emotion"
+      ],
+      "turns": [
+        {
+          "user": "У меня сегодня был ужасный день, всё валится из рук.",
+          "text": "остановке",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 17,
+          "generated_tokens": 1
+        }
+      ],
+      "tokens_per_sec": 2.1
+    },
+    {
+      "name": "memory",
+      "tags": [
+        "context",
+        "memory"
+      ],
+      "turns": [
+        {
+          "user": "Меня зовут Аня.",
+          "text": "малыш",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 9,
+          "generated_tokens": 1
+        },
+        {
+          "user": "Как меня зовут?",
+          "text": "которую на",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 19,
+          "generated_tokens": 2
+        }
+      ],
+      "tokens_per_sec": 6.3
+    },
+    {
+      "name": "smalltalk",
+      "tags": [
+        "context",
+        "multi_turn"
+      ],
+      "turns": [
+        {
+          "user": "Привет.",
+          "text": "к остановке",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 6,
+          "generated_tokens": 2
+        },
+        {
+          "user": "Как настроение?",
+          "text": "на",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 15,
+          "generated_tokens": 1
+        },
+        {
+          "user": "Что нового?",
+          "text": ",",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 23,
+          "generated_tokens": 1
+        }
+      ],
+      "tokens_per_sec": 8.4
+    },
+    {
+      "name": "open",
+      "tags": [
+        "long"
+      ],
+      "turns": [
+        {
+          "user": "Расскажи что-нибудь интересное.",
+          "text": "я",
+          "stopped": true,
+          "stop_reason": "<|turn_end|>",
+          "prompt_tokens": 10,
+          "generated_tokens": 1
+        }
+      ],
+      "tokens_per_sec": 2.1
+    }
+  ],
+  "elapsed_sec": 34.47,
+  "notes": [
+    "Roles in the source corpus are inferred by alternation, not annotated.",
+    "Test split is never used for training or checkpoint selection."
+  ]
+}

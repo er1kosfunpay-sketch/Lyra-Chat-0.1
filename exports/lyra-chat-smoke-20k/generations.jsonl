@@ -1,0 +1,16 @@
+{"scenario": "greeting", "tags": ["greeting"], "user": "Привет! Как дела?", "text": "на Осталось я", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 9, "generated_tokens": 3}
+{"scenario": "short_question", "tags": ["short"], "user": "Что делаешь?", "text": "з", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 7, "generated_tokens": 1}
+{"scenario": "slang", "tags": ["slang", "short"], "user": "Здарова, чё как?", "text": "шоп", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 10, "generated_tokens": 1}
+{"scenario": "clarification", "tags": ["clarification", "context"], "user": "Я вчера начал смотреть новый сериал.", "text": ",", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 11, "generated_tokens": 1}
+{"scenario": "clarification", "tags": ["clarification", "context"], "user": "Как думаешь, стоит его досматривать?", "text": "к", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 25, "generated_tokens": 1}
+{"scenario": "topic_change", "tags": ["context", "topic_change"], "user": "Привет, как прошли выходные?", "text": "на", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 10, "generated_tokens": 1}
+{"scenario": "topic_change", "tags": ["context", "topic_change"], "user": "Кстати, ты любишь кофе?", "text": ". малыш", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 21, "generated_tokens": 2}
+{"scenario": "shorter", "tags": ["instruction", "length"], "user": "Расскажи, чем ты обычно занимаешься вечером.", "text": ". на", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 12, "generated_tokens": 2}
+{"scenario": "shorter", "tags": ["instruction", "length"], "user": "Покороче, пожалуйста.", "text": "на призываю я", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 24, "generated_tokens": 3}
+{"scenario": "emotional", "tags": ["emotion"], "user": "У меня сегодня был ужасный день, всё валится из рук.", "text": "остановке", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 17, "generated_tokens": 1}
+{"scenario": "memory", "tags": ["context", "memory"], "user": "Меня зовут Аня.", "text": "малыш", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 9, "generated_tokens": 1}
+{"scenario": "memory", "tags": ["context", "memory"], "user": "Как меня зовут?", "text": "которую на", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 19, "generated_tokens": 2}
+{"scenario": "smalltalk", "tags": ["context", "multi_turn"], "user": "Привет.", "text": "к остановке", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 6, "generated_tokens": 2}
+{"scenario": "smalltalk", "tags": ["context", "multi_turn"], "user": "Как настроение?", "text": "на", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 15, "generated_tokens": 1}
+{"scenario": "smalltalk", "tags": ["context", "multi_turn"], "user": "Что нового?", "text": ",", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 23, "generated_tokens": 1}
+{"scenario": "open", "tags": ["long"], "user": "Расскажи что-нибудь интересное.", "text": "я", "stopped": true, "stop_reason": "<|turn_end|>", "prompt_tokens": 10, "generated_tokens": 1}

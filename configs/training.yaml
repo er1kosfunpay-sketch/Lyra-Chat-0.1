@@ -1,0 +1,32 @@
+# Training hyperparameters. Override any value from the command line.
+training:
+  seed: 42
+  stage: sft                  # "pretrain" or "sft"
+  batch_size: 6               # per micro-batch
+  grad_accum_steps: 10
+  max_steps: 20000
+  max_minutes: 660            # stop gracefully before a free GPU session expires
+  eval_interval: 250
+  eval_batches: 40
+  checkpoint_interval: 250
+  log_interval: 10
+  learning_rate: 3.0e-4
+  min_lr_ratio: 0.1
+  warmup_steps: 500
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  num_workers: 2
+  prefetch_factor: 4
+  amp: auto                   # auto | bf16 | fp16 | off
+  compile: false
+  run_dir: "artifacts/runs"
+  checkpoint_dir: "checkpoints"
+  keep_last_checkpoints: 3
+  save_best: true
+  log_jsonl: true
+  pretrain_data_dir: "artifacts/data/tokenized/pretrain"
+  sft_data_dir: "artifacts/data/tokenized/sft"
+  stop_after_seconds: null    # smoke / CI helper
+  allow_cpu: true

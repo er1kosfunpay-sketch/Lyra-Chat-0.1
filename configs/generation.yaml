@@ -1,0 +1,13 @@
+# Sampling settings for local inference.
+# Lower temperature / top_k / top_p make a small model less prone to
+# roleplaying and inventing stories instead of answering.
+generation:
+  max_new_tokens: 80
+  min_new_tokens: 1
+  temperature: 0.6
+  top_k: 30
+  top_p: 0.9
+  repetition_penalty: 1.12
+  no_repeat_ngram_size: 3
+  do_sample: true
+  context_tokens: 900

@@ -1,0 +1,24 @@
+# Data preparation parameters.
+data:
+  source_url: "https://huggingface.co/datasets/ZeroAgency/ru-instruct-conversation-v1"
+  source_name: "ZeroAgency/ru-instruct-conversation-v1"
+  source_license: "MIT"
+  source_license: "MIT"
+  raw_path: "data/raw/dataset.jsonl.gz"
+  cleaned_dir: "artifacts/data/cleaned"
+  tokenized_dir: "artifacts/data/tokenized"
+  tokenizer_dir: "artifacts/tokenizer"
+  reports_dir: "reports"
+  seed: 42
+  split_fractions: [0.98, 0.01, 0.01]
+  min_turns: 2
+  max_turns: 24
+  max_turn_chars: 600
+  max_dialogue_chars: 4000
+  min_letters_per_turn: 2
+  near_duplicate_filter: true
+  tokenizer_vocab_size: 24000
+  tokenizer_sample_mb: 160
+  context_turns: 8
+  sft_max_len: 1024
+  max_dialogues: null       # set to an integer for a quick local subset; null = all

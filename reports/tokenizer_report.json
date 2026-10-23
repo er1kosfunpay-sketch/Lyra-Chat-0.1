@@ -1,0 +1,18 @@
+{
+  "signature": "ba16c15e3da3c562",
+  "vocab_size": 24000,
+  "fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a",
+  "sample_mb": 160,
+  "stride": 2,
+  "seed": 42,
+  "special_tokens": {
+    "<|pad|>": 0,
+    "<|unk|>": 1,
+    "<|bos|>": 2,
+    "<|eos|>": 3,
+    "<|system|>": 4,
+    "<|user|>": 5,
+    "<|assistant|>": 6,
+    "<|turn_end|>": 7
+  }
+}

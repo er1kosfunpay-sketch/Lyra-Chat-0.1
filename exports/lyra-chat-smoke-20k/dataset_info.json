@@ -1,0 +1,109 @@
+{
+  "name": "Den4ikAI/russian_dialogues_2",
+  "license": "MIT",
+  "url": "https://huggingface.co/datasets/Den4ikAI/russian_dialogues_2/resolve/main/dataset.jsonl.gz",
+  "raw_dialogues_read": 20000,
+  "raw_turns": 90541,
+  "kept_dialogues": 19999,
+  "kept_turns": 90473,
+  "split_sizes": {
+    "train": {
+      "dialogues": 19610,
+      "turns": 88697,
+      "chars": 5343472
+    },
+    "val": {
+      "dialogues": 207,
+      "turns": 947,
+      "chars": 56732
+    },
+    "test": {
+      "dialogues": 182,
+      "turns": 829,
+      "chars": 48535
+    }
+  },
+  "tokenization": {
+    "pretrain": {
+      "train": {
+        "signature": "ae4648d31ea06bd2",
+        "split": "train",
+        "tokens": 1583128,
+        "dialogues": 19610,
+        "block_size": 1024,
+        "dtype": "int32",
+        "tokenizer_fingerprint": "96e4064990a0e0ba2011babce1ac091ee25bfdbebc405d84a43449505e8cb606"
+      },
+      "val": {
+        "signature": "e45cff163aa1160f",
+        "split": "val",
+        "tokens": 17011,
+        "dialogues": 207,
+        "block_size": 1024,
+        "dtype": "int32",
+        "tokenizer_fingerprint": "96e4064990a0e0ba2011babce1ac091ee25bfdbebc405d84a43449505e8cb606"
+      },
+      "test": {
+        "signature": "19d10d78edfa0630",
+        "split": "test",
+        "tokens": 14697,
+        "dialogues": 182,
+        "block_size": 1024,
+        "dtype": "int32",
+        "tokenizer_fingerprint": "96e4064990a0e0ba2011babce1ac091ee25bfdbebc405d84a43449505e8cb606"
+      }
+    },
+    "sft": {
+      "train": {
+        "signature": "8cb75c22076107d1",
+        "split": "train",
+        "examples": 41957,
+        "tokens": 2413151,
+        "response_tokens": 676251,
+        "max_len": 1024,
+        "skipped": {},
+        "tokenizer_fingerprint": "96e4064990a0e0ba2011babce1ac091ee25bfdbebc405d84a43449505e8cb606"
+      },
+      "val": {
+        "signature": "16f3ab9b4c5fe000",
+        "split": "val",
+        "examples": 449,
+        "tokens": 26425,
+        "response_tokens": 7373,
+        "max_len": 1024,
+        "skipped": {},
+        "tokenizer_fingerprint": "96e4064990a0e0ba2011babce1ac091ee25bfdbebc405d84a43449505e8cb606"
+      },
+      "test": {
+        "signature": "d94b904b2be5a344",
+        "split": "test",
+        "examples": 389,
+        "tokens": 22391,
+        "response_tokens": 6029,
+        "max_len": 1024,
+        "skipped": {},
+        "tokenizer_fingerprint": "96e4064990a0e0ba2011babce1ac091ee25bfdbebc405d84a43449505e8cb606"
+      }
+    }
+  },
+  "role_annotation": "inferred by alternation; not ground truth",
+  "preprocessing": {
+    "dropped": {
+      "too_few_valid_turns": 1
+    },
+    "turns_dropped": {
+      "no_letters": 31,
+      "repeated_characters": 35,
+      "no_information": 1
+    },
+    "pii_masked": {
+      "urls": 0,
+      "emails": 0,
+      "phones": 3,
+      "mentions": 0,
+      "long_numbers": 7
+    },
+    "truncated_turns": 0
+  },
+  "raw_dataset_included": false
+}

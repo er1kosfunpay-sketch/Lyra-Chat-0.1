@@ -1,0 +1,8 @@
+{
+  "verified": true,
+  "process_cwd": "temporary directory",
+  "stdout": "EXPORT_OK 104274432 <|turn_end|>",
+  "python": "3.12.10",
+  "torch": "2.14.0+cpu",
+  "parameters": 104274432
+}

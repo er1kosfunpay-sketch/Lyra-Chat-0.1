@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "vocab_size": 24000,
+  "special_tokens": [
+    "<|pad|>",
+    "<|unk|>",
+    "<|bos|>",
+    "<|eos|>",
+    "<|system|>",
+    "<|user|>",
+    "<|assistant|>",
+    "<|turn_end|>"
+  ],
+  "byte_level_bpe": true,
+  "sample_mb": 160,
+  "stride": 1,
+  "seed": 42,
+  "trained_on": "C:\\Users\\erikh\\OneDrive\\Документы\\Lyra Chat 0.1\\artifacts\\data\\cleaned\\train.jsonl",
+  "data_signature": "472814c609853138"
+}

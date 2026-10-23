@@ -1,0 +1,30 @@
+{
+  "export_version": 2,
+  "name": "lyra-chat-smoke-20k",
+  "export_dir": "C:\\Users\\erikh\\OneDrive\\Документы\\Lyra Chat 0.1\\exports\\lyra-chat-smoke-20k",
+  "created_at": "2026-10-22 00:23:35",
+  "stage": "sft",
+  "step": 4,
+  "smoke": true,
+  "tokens_seen": 652,
+  "best_val_loss": 9.028329902971295,
+  "parameters": 104274432,
+  "model_config": {
+    "vocab_size": 24000,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "block_size": 1024,
+    "dropout": 0.1,
+    "bias": true,
+    "tie_embeddings": true,
+    "init_std": 0.02
+  },
+  "tokenizer_fingerprint": "96e4064990a0e0ba2011babce1ac091ee25bfdbebc405d84a43449505e8cb606",
+  "source_run_dir": "C:\\Users\\erikh\\OneDrive\\Документы\\Lyra Chat 0.1\\artifacts\\runs\\smoke-sft",
+  "dataset": {
+    "name": "Den4ikAI/russian_dialogues_2",
+    "license": "MIT"
+  },
+  "format": "safetensors"
+}

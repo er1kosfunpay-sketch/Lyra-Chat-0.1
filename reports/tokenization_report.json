@@ -1,0 +1,71 @@
+{
+  "pretrain": {
+    "splits": {
+      "train": {
+        "signature": "0271b2dfbd150b35",
+        "split": "train",
+        "tokens": 135752205,
+        "dialogues": 1667186,
+        "block_size": 1024,
+        "dtype": "int32",
+        "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+      },
+      "val": {
+        "signature": "ce2dc60cba19235d",
+        "split": "val",
+        "tokens": 1376390,
+        "dialogues": 16825,
+        "block_size": 1024,
+        "dtype": "int32",
+        "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+      },
+      "test": {
+        "signature": "2aac8699abd35a84",
+        "split": "test",
+        "tokens": 1392954,
+        "dialogues": 17055,
+        "block_size": 1024,
+        "dtype": "int32",
+        "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+      }
+    },
+    "block_size": 1024,
+    "signature": "d090704d5e312aac"
+  },
+  "sft": {
+    "splits": {
+      "train": {
+        "signature": "83fc0ecbfa281827",
+        "split": "train",
+        "examples": 3566960,
+        "tokens": 206620362,
+        "response_tokens": 57909022,
+        "max_len": 1024,
+        "skipped": {},
+        "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+      },
+      "val": {
+        "signature": "f9742a57c9ac5e8f",
+        "split": "val",
+        "examples": 35992,
+        "tokens": 2089509,
+        "response_tokens": 588296,
+        "max_len": 1024,
+        "skipped": {},
+        "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+      },
+      "test": {
+        "signature": "173883b8981447a3",
+        "split": "test",
+        "examples": 36551,
+        "tokens": 2125902,
+        "response_tokens": 595716,
+        "max_len": 1024,
+        "skipped": {},
+        "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+      }
+    },
+    "max_len": 1024,
+    "signature": "4822970e0ff79e49"
+  }
+}

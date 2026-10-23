@@ -1,0 +1,169 @@
+{
+  "source": {
+    "name": "Den4ikAI/russian_dialogues_2",
+    "url": "https://huggingface.co/datasets/Den4ikAI/russian_dialogues_2/resolve/main/dataset.jsonl.gz",
+    "license": "MIT",
+    "raw_file": "C:\\Users\\erikh\\OneDrive\\Документы\\Lyra Chat 0.1\\data\\raw\\dataset.jsonl.gz",
+    "raw_mb": 271.73,
+    "raw_dialogues_read": 1701649,
+    "raw_turns": 7704078,
+    "question_rate_even": 0.16115247375325334,
+    "question_rate_odd": 0.12238144746357783,
+    "speaker_labels": "absent; roles inferred by alternation"
+  },
+  "seed": 42,
+  "split_fractions": [
+    0.98,
+    0.01,
+    0.01
+  ],
+  "near_duplicate_filter": true,
+  "max_turns": 24,
+  "max_turn_chars": 600,
+  "max_dialogue_chars": 4000,
+  "limit": null,
+  "splits": {
+    "train": {
+      "dialogues": 1667186,
+      "turns": 7539071,
+      "chars": 454800257
+    },
+    "val": {
+      "dialogues": 16825,
+      "turns": 76150,
+      "chars": 4625276
+    },
+    "test": {
+      "dialogues": 17055,
+      "turns": 77217,
+      "chars": 4662801
+    }
+  },
+  "quality": {
+    "seen": 1701649,
+    "kept": 1701066,
+    "turns_seen": 7704078,
+    "turns_kept": 7692438,
+    "dropped": {
+      "too_few_valid_turns": 38,
+      "repetitive_fragments": 5,
+      "exact_duplicate": 532,
+      "near_duplicate": 8
+    },
+    "turns_dropped": {
+      "no_letters": 2467,
+      "repeated_characters": 3125,
+      "no_information": 83,
+      "spam": 8
+    },
+    "truncated_turns": 0,
+    "truncated_dialogues": 106,
+    "pii": {
+      "urls": 1,
+      "emails": 0,
+      "phones": 512,
+      "mentions": 0,
+      "long_numbers": 649
+    },
+    "turn_length_summary": {
+      "count": 7692438,
+      "mean": 60.33,
+      "p50": 53.0,
+      "p90": 115.0,
+      "p99": 145.0,
+      "max": 294.0
+    },
+    "dialogue_length_summary": {
+      "count": 1701066,
+      "mean": 272.82,
+      "p50": 260.0,
+      "p90": 418.0,
+      "p99": 623.0,
+      "max": 1881.0
+    },
+    "turns_per_dialogue_summary": {
+      "count": 1701066,
+      "mean": 4.52,
+      "p50": 4.0,
+      "p90": 6.0,
+      "p99": 8.0,
+      "max": 24.0
+    },
+    "mean_repetition": 0.0294,
+    "roles_inferred": 1701066,
+    "roles_provided": 0,
+    "mean_role_confidence": 0.5372
+  },
+  "signature": "c3a6367431ee4100",
+  "tokenization": {
+    "pretrain": {
+      "splits": {
+        "train": {
+          "signature": "0271b2dfbd150b35",
+          "split": "train",
+          "tokens": 135752205,
+          "dialogues": 1667186,
+          "block_size": 1024,
+          "dtype": "int32",
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        },
+        "val": {
+          "signature": "ce2dc60cba19235d",
+          "split": "val",
+          "tokens": 1376390,
+          "dialogues": 16825,
+          "block_size": 1024,
+          "dtype": "int32",
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        },
+        "test": {
+          "signature": "2aac8699abd35a84",
+          "split": "test",
+          "tokens": 1392954,
+          "dialogues": 17055,
+          "block_size": 1024,
+          "dtype": "int32",
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        }
+      },
+      "block_size": 1024,
+      "signature": "d090704d5e312aac"
+    },
+    "sft": {
+      "splits": {
+        "train": {
+          "signature": "83fc0ecbfa281827",
+          "split": "train",
+          "examples": 3566960,
+          "tokens": 206620362,
+          "response_tokens": 57909022,
+          "max_len": 1024,
+          "skipped": {},
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        },
+        "val": {
+          "signature": "f9742a57c9ac5e8f",
+          "split": "val",
+          "examples": 35992,
+          "tokens": 2089509,
+          "response_tokens": 588296,
+          "max_len": 1024,
+          "skipped": {},
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        },
+        "test": {
+          "signature": "173883b8981447a3",
+          "split": "test",
+          "examples": 36551,
+          "tokens": 2125902,
+          "response_tokens": 595716,
+          "max_len": 1024,
+          "skipped": {},
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        }
+      },
+      "max_len": 1024,
+      "signature": "4822970e0ff79e49"
+    }
+  }
+}

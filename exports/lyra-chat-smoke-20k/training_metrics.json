@@ -1,0 +1,95 @@
+{
+  "stage": "sft",
+  "stop_reason": "max_steps",
+  "steps": 4,
+  "max_steps": 4,
+  "tokens_seen": 652,
+  "supervised_tokens": 112,
+  "session_tokens": 652,
+  "elapsed_sec": 44.49,
+  "tokens_per_sec": 14.7,
+  "best_val_loss": 9.028329902971295,
+  "final_train_loss": 8.822046279907227,
+  "final_val_loss": 9.028329902971295,
+  "final_val_perplexity": 8335.926134849096,
+  "skipped_steps": 0,
+  "resumed_from": null,
+  "device": {
+    "device": "cpu",
+    "torch": "2.14.0+cpu",
+    "cuda_available": false,
+    "cuda_version": null,
+    "cpu_count": 8
+  },
+  "amp": {
+    "enabled": false,
+    "dtype": "None"
+  },
+  "parameters": 104274432,
+  "training_config": {
+    "seed": 42,
+    "stage": "sft",
+    "batch_size": 2,
+    "grad_accum_steps": 1,
+    "max_steps": 4,
+    "max_minutes": 10,
+    "eval_interval": 2,
+    "eval_batches": 2,
+    "checkpoint_interval": 2,
+    "log_interval": 1,
+    "learning_rate": 0.0003,
+    "min_lr_ratio": 0.1,
+    "warmup_steps": 1,
+    "weight_decay": 0.1,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "grad_clip": 1.0,
+    "num_workers": 0,
+    "prefetch_factor": 4,
+    "amp": "auto",
+    "compile": false,
+    "run_dir": "artifacts/runs",
+    "checkpoint_dir": "checkpoints",
+    "keep_last_checkpoints": 3,
+    "save_best": true,
+    "log_jsonl": true,
+    "pretrain_data_dir": "artifacts/data/tokenized/pretrain",
+    "sft_data_dir": "artifacts/data/tokenized/sft",
+    "stop_after_seconds": 300,
+    "allow_cpu": true
+  },
+  "model_config": {
+    "vocab_size": 24000,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "block_size": 1024,
+    "dropout": 0.1,
+    "bias": true,
+    "tie_embeddings": true,
+    "init_std": 0.02
+  },
+  "data": {
+    "stage": "sft",
+    "train": {
+      "signature": "8cb75c22076107d1",
+      "split": "train",
+      "examples": 41957,
+      "tokens": 2413151,
+      "response_tokens": 676251,
+      "max_len": 1024,
+      "skipped": {},
+      "tokenizer_fingerprint": "96e4064990a0e0ba2011babce1ac091ee25bfdbebc405d84a43449505e8cb606"
+    }
+  },
+  "train_loss_history": [
+    9.183424949645996,
+    9.017614364624023,
+    9.032176971435547,
+    8.822046279907227
+  ],
+  "val_loss_history": [
+    9.479754152432294,
+    9.028329902971295
+  ]
+}

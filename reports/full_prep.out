@@ -1,0 +1,142 @@
+00:15:44 | INFO    | Step 1/3: download and clean
+00:18:32 | INFO    | Processed 100000 raw dialogues, kept 99994. Latest split sizes: {'train': 98014, 'val': 999, 'test': 981}
+00:21:07 | INFO    | Processed 200000 raw dialogues, kept 199983. Latest split sizes: {'train': 196072, 'val': 1963, 'test': 1948}
+00:23:44 | INFO    | Processed 300000 raw dialogues, kept 299967. Latest split sizes: {'train': 294077, 'val': 2970, 'test': 2920}
+00:26:15 | INFO    | Processed 400000 raw dialogues, kept 399948. Latest split sizes: {'train': 392094, 'val': 3930, 'test': 3924}
+00:28:49 | INFO    | Processed 500000 raw dialogues, kept 499927. Latest split sizes: {'train': 490124, 'val': 4927, 'test': 4876}
+00:31:21 | INFO    | Processed 600000 raw dialogues, kept 599898. Latest split sizes: {'train': 588042, 'val': 5939, 'test': 5917}
+00:33:52 | INFO    | Processed 700000 raw dialogues, kept 699879. Latest split sizes: {'train': 686029, 'val': 6919, 'test': 6931}
+00:36:24 | INFO    | Processed 800000 raw dialogues, kept 799844. Latest split sizes: {'train': 783986, 'val': 7958, 'test': 7900}
+00:38:55 | INFO    | Processed 900000 raw dialogues, kept 899820. Latest split sizes: {'train': 881986, 'val': 8935, 'test': 8899}
+00:41:26 | INFO    | Processed 1000000 raw dialogues, kept 999777. Latest split sizes: {'train': 979964, 'val': 9905, 'test': 9908}
+00:43:56 | INFO    | Processed 1100000 raw dialogues, kept 1099730. Latest split sizes: {'train': 1077930, 'val': 10907, 'test': 10893}
+00:46:27 | INFO    | Processed 1200000 raw dialogues, kept 1199680. Latest split sizes: {'train': 1175881, 'val': 11864, 'test': 11935}
+00:48:57 | INFO    | Processed 1300000 raw dialogues, kept 1299633. Latest split sizes: {'train': 1273802, 'val': 12862, 'test': 12969}
+00:51:46 | INFO    | Processed 1400000 raw dialogues, kept 1399581. Latest split sizes: {'train': 1371733, 'val': 13791, 'test': 14057}
+00:54:25 | INFO    | Processed 1500000 raw dialogues, kept 1499520. Latest split sizes: {'train': 1469640, 'val': 14822, 'test': 15058}
+02:53:14 | INFO    | Processed 1600000 raw dialogues, kept 1599473. Latest split sizes: {'train': 1567597, 'val': 15827, 'test': 16049}
+02:55:44 | INFO    | Processed 1700000 raw dialogues, kept 1699419. Latest split sizes: {'train': 1665567, 'val': 16813, 'test': 17039}
+02:56:02 | INFO    | Cleaning done: kept 1701066/1701649 dialogues; splits={'train': 1667186, 'val': 16825, 'test': 17055}
+02:56:05 | INFO    | Training byte-level BPE: vocab=24000, sample=160 MB, stride=2
+
+
+
+16:26:40 | INFO    | Tokenizer trained and saved to C:\Users\erikh\OneDrive\Документы\Lyra Chat 0.1\artifacts\tokenizer
+16:26:40 | INFO    | Tokenizer ready: vocab=24000
+16:26:40 | INFO    | Step 2/3: tokenize pretraining streams
+16:26:56 | INFO    | Tokenized train pretrain: 100000 dialogues, 8146050 tokens
+16:27:08 | INFO    | Tokenized train pretrain: 200000 dialogues, 16291226 tokens
+16:27:50 | INFO    | Tokenized train pretrain: 300000 dialogues, 24442063 tokens
+16:28:39 | INFO    | Tokenized train pretrain: 400000 dialogues, 32587903 tokens
+16:29:25 | INFO    | Tokenized train pretrain: 500000 dialogues, 40724164 tokens
+16:30:10 | INFO    | Tokenized train pretrain: 600000 dialogues, 48871436 tokens
+16:31:02 | INFO    | Tokenized train pretrain: 700000 dialogues, 57003472 tokens
+16:31:49 | INFO    | Tokenized train pretrain: 800000 dialogues, 65159998 tokens
+16:39:53 | INFO    | Tokenized train pretrain: 900000 dialogues, 73309690 tokens
+16:40:40 | INFO    | Tokenized train pretrain: 1000000 dialogues, 81454154 tokens
+16:41:28 | INFO    | Tokenized train pretrain: 1100000 dialogues, 89599628 tokens
+16:42:15 | INFO    | Tokenized train pretrain: 1200000 dialogues, 97739742 tokens
+16:43:00 | INFO    | Tokenized train pretrain: 1300000 dialogues, 105881230 tokens
+16:43:46 | INFO    | Tokenized train pretrain: 1400000 dialogues, 114011755 tokens
+16:44:32 | INFO    | Tokenized train pretrain: 1500000 dialogues, 122143404 tokens
+16:45:18 | INFO    | Tokenized train pretrain: 1600000 dialogues, 130274156 tokens
+16:45:49 | INFO    | Pretrain train: 1667186 dialogues -> 135752205 tokens
+16:45:57 | INFO    | Pretrain val: 16825 dialogues -> 1376390 tokens
+16:46:05 | INFO    | Pretrain test: 17055 dialogues -> 1392954 tokens
+16:46:05 | INFO    | Step 3/3: tokenize response-only SFT examples
+17:12:39 | INFO    | SFT train: 3566960 examples, 206620362 tokens (57909022 response), skipped={}
+17:12:53 | INFO    | SFT val: 35992 examples, 2089509 tokens (588296 response), skipped={}
+17:13:06 | INFO    | SFT test: 36551 examples, 2125902 tokens (595716 response), skipped={}
+{
+  "dialogues_kept": 1701066,
+  "turns_kept": 7692438,
+  "splits": {
+    "train": {
+      "dialogues": 1667186,
+      "turns": 7539071,
+      "chars": 454800257
+    },
+    "val": {
+      "dialogues": 16825,
+      "turns": 76150,
+      "chars": 4625276
+    },
+    "test": {
+      "dialogues": 17055,
+      "turns": 77217,
+      "chars": 4662801
+    }
+  },
+  "tokenizer_vocab": 24000,
+  "tokenization": {
+    "pretrain": {
+      "splits": {
+        "train": {
+          "signature": "0271b2dfbd150b35",
+          "split": "train",
+          "tokens": 135752205,
+          "dialogues": 1667186,
+          "block_size": 1024,
+          "dtype": "int32",
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        },
+        "val": {
+          "signature": "ce2dc60cba19235d",
+          "split": "val",
+          "tokens": 1376390,
+          "dialogues": 16825,
+          "block_size": 1024,
+          "dtype": "int32",
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        },
+        "test": {
+          "signature": "2aac8699abd35a84",
+          "split": "test",
+          "tokens": 1392954,
+          "dialogues": 17055,
+          "block_size": 1024,
+          "dtype": "int32",
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        }
+      },
+      "block_size": 1024,
+      "signature": "d090704d5e312aac"
+    },
+    "sft": {
+      "splits": {
+        "train": {
+          "signature": "83fc0ecbfa281827",
+          "split": "train",
+          "examples": 3566960,
+          "tokens": 206620362,
+          "response_tokens": 57909022,
+          "max_len": 1024,
+          "skipped": {},
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        },
+        "val": {
+          "signature": "f9742a57c9ac5e8f",
+          "split": "val",
+          "examples": 35992,
+          "tokens": 2089509,
+          "response_tokens": 588296,
+          "max_len": 1024,
+          "skipped": {},
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        },
+        "test": {
+          "signature": "173883b8981447a3",
+          "split": "test",
+          "examples": 36551,
+          "tokens": 2125902,
+          "response_tokens": 595716,
+          "max_len": 1024,
+          "skipped": {},
+          "tokenizer_fingerprint": "3332ab2d5c44240475016515929ef371115fe38084f98bbcd188e454a2939f2a"
+        }
+      },
+      "max_len": 1024,
+      "signature": "4822970e0ff79e49"
+    }
+  }
+}

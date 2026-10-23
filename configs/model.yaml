@@ -1,0 +1,12 @@
+# Architecture of the conversation model.
+# 12 x 768 with 12 heads and tied embeddings = 104,274,432 parameters.
+model:
+  vocab_size: 24000      # must match the trained tokenizer; checked at load time
+  n_layer: 12
+  n_head: 12
+  n_embd: 768
+  block_size: 1024
+  dropout: 0.1
+  bias: true
+  tie_embeddings: true
+  init_std: 0.02
