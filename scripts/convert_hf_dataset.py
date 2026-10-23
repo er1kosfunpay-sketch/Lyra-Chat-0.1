@@ -8,6 +8,7 @@ from __future__ import annotations
 import gzip
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,36 +27,44 @@ DATASET_NAME = "ZeroAgency/ru-instruct-conversation-v1"
 LIMIT: int | None = None
 
 MIN_TURN_CHARS = 2
-MAX_TURN_CHARS = 600
-MAX_DIALOGUE_CHARS = 4000
+MAX_TURN_CHARS = 3000  # слишком длинные реплики (чаще всего испорченные записи); сам pipeline дополнительно урежет до 600
 
 VALID_ROLES = {"system", "user", "assistant"}
 
 
-def _filter_conversation(conversations: list[dict]) -> list[dict] | None:
-    """Return cleaned turns or None if the dialogue is unusable."""
+def _filter_conversation(conversations: list[dict]) -> tuple[list[dict] | None, str]:
+    """Return cleaned turns + reason, or (None, reason) if unusable.
+
+    Filter is deliberately gentle: the project pipeline (cleaning) already
+    truncates long turns/dialogues; here we only drop hopeless dialogues.
+    """
+    if not all(isinstance(m, dict) for m in conversations):
+        return None, "bad_message_type"
     turns: list[dict] = []
     for msg in conversations:
         role = str(msg.get("role", "")).strip().lower()
         content = str(msg.get("content", "")).strip()
         if role not in VALID_ROLES:
-            continue
+            return None, f"role_{role or 'empty'}"
         if not (MIN_TURN_CHARS <= len(content) <= MAX_TURN_CHARS):
-            return None
+            return None, "turn_len"
         turns.append({"role": role, "content": content})
-
-    if not turns:
-        return None
 
     # A prompt must never start with an assistant turn.
     if turns[0]["role"] == "assistant":
-        return None
+        return None, "assistant_first"
 
-    # Cap total dialogue length to match DataConfig.max_dialogue_chars.
-    if sum(len(t["content"]) for t in turns) > MAX_DIALOGUE_CHARS:
-        return None
+    # SFT learns assistant turns only; require at least one, with a user
+    # turn somewhere before it (otherwise no valid SFT example exists).
+    if not any(t["role"] == "assistant" for t in turns):
+        return None, "no_assistant"
+    for i, t in enumerate(turns):
+        if t["role"] == "assistant" and any(t2["role"] == "user" for t2 in turns[:i]):
+            break
+    else:
+        return None, "assistant_without_user"
 
-    return turns
+    return turns, "ok"
 
 
 def main() -> None:
@@ -66,19 +75,27 @@ def main() -> None:
 
     kept = 0
     skipped = 0
+    reasons: Counter[str] = Counter()
+    first_row_keys: set[str] | None = None
+    has_conversation_field = False
     with gzip.open(OUT_PATH, "wt", encoding="utf-8") as fh:
         for index, row in enumerate(ds):
             if LIMIT is not None and index >= LIMIT:
                 break
+            if first_row_keys is None and isinstance(row, dict):
+                first_row_keys = set(row.keys())
             # У ZeroAgency колонка называется "conversation" (ед. число),
             # у похожих датасетов — "conversations"; поддерживаем оба.
             conversations = row.get("conversation") or row.get("conversations")
             if not isinstance(conversations, list):
                 skipped += 1
+                reasons["no_conversation_field"] += 1
                 continue
-            turns = _filter_conversation(conversations)
+            has_conversation_field = True
+            turns, reason = _filter_conversation(conversations)
             if turns is None:
                 skipped += 1
+                reasons[reason] += 1
                 continue
             record = {
                 "id": f"zhconv-{index}",
@@ -89,6 +106,13 @@ def main() -> None:
             kept += 1
 
     print(f"Wrote {kept} dialogues to {OUT_PATH} (skipped {skipped})")
+    print("Skip reasons:", dict(reasons.most_common()))
+    if first_row_keys and not has_conversation_field:
+        print("Row keys sample:", sorted(first_row_keys))
+    if kept == 0:
+        raise SystemExit(
+            "Error: 0 dialogues kept — see skip reasons above."
+        )
     if kept == 0:
         raise SystemExit(
             "Error: 0 dialogues kept. Check that the dataset rows have a "
