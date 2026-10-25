@@ -40,10 +40,17 @@ md(
 
 ## Что загрузить в Kaggle
 
-Создайте два **Kaggle Dataset** и добавьте их через **Add Input**:
+Код клонируется из GitHub:
 
-1. `lyra-chat-project.zip` — код проекта.
-2. `lyra-artifacts.tar.gz` — `artifacts/tokenizer` + `artifacts/data/tokenized`.
+`https://github.com/er1kosfunpay-sketch/Lyra-Chat-0.1.git`
+
+Нужен только один **Kaggle Dataset** с artifacts:
+
+`lyra-artifacts.tar.gz` (или папка `artifacts/`) — `artifacts/tokenizer` +
+`artifacts/data/tokenized`.
+
+Если проекта нет в `/kaggle/input`, ноутбук выполнит `git clone --depth 1`.
+Загружать `lyra-chat-project.zip` не обязательно.
 
 Можно также распаковать `lyra-artifacts.tar.gz` локально и загрузить папку
 `artifacts/` как Dataset — ноутбук найдёт файлы сам.
@@ -51,7 +58,7 @@ md(
 ## Настройки ноутбука
 
 - **Accelerator:** GPU T4 x2 (используется один GPU).
-- **Internet:** On — для установки зависимостей; с готовыми artifacts можно Off.
+- **Internet:** On — нужен для `git clone` и установки зависимостей.
 - **Persistence:** Files only, либо сохраняйте версию ноутбука.
 - **Disk:** T4 x2 даёт около 20 GB в `/kaggle/working`.
 
@@ -93,6 +100,7 @@ from pathlib import Path
 WORK = Path("/kaggle/working")
 INPUT = Path("/kaggle/input")
 PROJECT = WORK / "lyra-chat"
+GITHUB_REPO = "https://github.com/er1kosfunpay-sketch/Lyra-Chat-0.1.git"
 
 if not WORK.exists():
     raise SystemExit("Этот ноутбук рассчитан на Kaggle Notebooks: нет /kaggle/working")
@@ -116,7 +124,10 @@ def find_project() -> Path:
         candidates.extend(path.parent for path in INPUT.glob("**/pyproject.toml"))
 
         for archive in INPUT.glob("**/*.zip"):
-            if "lyra" not in archive.name.lower() and "chat" not in archive.name.lower():
+            name = archive.name.lower()
+            if "artifact" in name:
+                continue
+            if "lyra" not in name and "chat" not in name:
                 continue
             target = WORK / "extracted" / archive.stem
             if not target.exists():
@@ -130,9 +141,23 @@ def find_project() -> Path:
         if looks_like_project(candidate):
             return candidate.resolve()
 
+    # Проекта нет во входных данных — клонируем публичный GitHub-репозиторий.
+    if GITHUB_REPO:
+        print("Проект не найден во входных данных. Клонирую", GITHUB_REPO)
+        if PROJECT.is_symlink():
+            PROJECT.unlink()
+        elif PROJECT.exists():
+            shutil.rmtree(PROJECT)
+        subprocess.run(
+            ["git", "clone", "--depth", "1", GITHUB_REPO, str(PROJECT)],
+            check=True,
+        )
+        if looks_like_project(PROJECT):
+            return PROJECT.resolve()
+
     raise FileNotFoundError(
-        "Проект не найден. Загрузите lyra-chat-project.zip как Kaggle Dataset "
-        "и добавьте его через Add Input."
+        "Проект не найден. Проверьте GITHUB_REPO или загрузите "
+        "lyra-chat-project.zip как Kaggle Dataset."
     )
 
 
@@ -787,8 +812,8 @@ md(
 
 ### Ошибки
 
-- **Project not found** — загрузите `lyra-chat-project.zip` как Kaggle Dataset
-  и добавьте через Add Input.
+- **Project not found** — проверьте `GITHUB_REPO` в первой ячейке; альтернативно
+  загрузите `lyra-chat-project.zip` как Kaggle Dataset.
 - **Artifacts not found** — загрузите `lyra-artifacts.tar.gz`; проверьте, что рядом
   с `tokenizer.json` есть `special_tokens.json`.
 - **GPU not found** — Settings → Accelerator → GPU T4 x2.
@@ -809,8 +834,13 @@ md(
 ### Если обновили код проекта
 
 Ноутбук сначала ищет уже существующий `/kaggle/working/lyra-chat` и использует его.
-Если вы загрузили новую версию `lyra-chat-project.zip`, удалите старую папку
-`/kaggle/working/lyra-chat` (или запустите новую сессию), иначе будет использован старый код.
+Чтобы подтянуть свежий код, выполните отдельную ячейку:
+
+```python
+!git -C /kaggle/working/lyra-chat pull --ff-only
+```
+
+Либо удалите `/kaggle/working/lyra-chat` и запустите setup заново.
 
 ### Что честно ожидать
 
