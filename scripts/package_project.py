@@ -25,6 +25,7 @@ INCLUDE = [
     "pyproject.toml",
     "requirements.txt",
     "build_notebook.py",
+    "build_kaggle_notebook.py",
     ".gitignore",
 ]
 EXCLUDE_DIRS = {

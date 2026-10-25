@@ -12,3 +12,6 @@ reports/*.jsonl
 *.part
 *.zip
 !notebooks/*.ipynb
+
+# Local OLMo tokenizer/model comparison files
+OLMo-2-0425-1B/
